@@ -162,7 +162,6 @@ namespace ORTools
             // 4. Set the search strategy to be used in the graph
             RoutingSearchParameters searchParams = operations_research_constraint_solver.DefaultRoutingSearchParameters();
             searchParams.FirstSolutionStrategy = FirstSolutionStrategy.Types.Value.PathCheapestArc;
-            searchParams.LnsTimeLimit = new Duration { Seconds = 20 };
             searchParams.TimeLimit = new Duration { Seconds = 20 };
 
             // 5. Start the solver with the defined params (sync) and print the solution

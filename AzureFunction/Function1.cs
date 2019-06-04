@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using ORTools;
+using Google.Protobuf.WellKnownTypes;
 
 namespace FunctionApp1
 {
@@ -21,7 +22,7 @@ namespace FunctionApp1
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
-
+            var sec = new Duration() { Seconds = 30 };
             TimeConstrainedVRP.Execute();
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
